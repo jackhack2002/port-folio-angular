@@ -1,29 +1,59 @@
 
-<nav class="sticky top-0 bg-indigo-600" >
-  <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
-    <div class="relative flex items-center justify-between h-16">
-      <div class="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start"> 
-        <div class="hidden sm:ml-6 sm:block">
-          <div class="flex space-x-4 ">
-              <div class="slide-in-left">
-                  <img  [src]="portfolio" alt="" srcset="">
-              </div>
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#"  id="a1" class="px-3 py-2 text-sm font-medium text-gray-300 rounded-xl hover:bg-gray-700 hover:text-white " routerLink="profile">PROFILE</a>
-            <a href="#" id="a2" class="px-3 py-2 text-sm font-medium text-gray-300  rounded-xl  hover:bg-gray-700 hover:text-white" routerLink="education">EDUCATION</a>
-            <a href="#" id="a4"   class="px-3 py-2 text-sm font-medium text-gray-300 rounded-xl  hover:bg-gray-700 hover:text-white" routerLink="skill">SKILLS</a>
-            <a href="#" id="a3"  class="px-3 py-2 text-sm font-medium text-gray-300  rounded-xl  hover:bg-gray-700 hover:text-white" routerLink="project">PROJECTS</a>
-           
-            <!-- <a href="#" id="a5"   class="px-3 py-2 text-sm font-medium text-gray-300 rounded-xl  hover:bg-gray-700 hover:text-white" routerLink="activities">ACTIVITIES</a> -->
-            
-            <a href="#"  id="a6"  class="px-3 py-2 text-sm font-medium text-gray-300 rounded-xl  hover:bg-gray-700 hover:text-white" routerLink="forcontact">FOR CONTACT</a>
-          </div>
-        </div>
-      </div>
-       
-      </div>
-    </div>
+
+<nav class="absolute w-full top-0 left-0 h-screen z-50  {{isSideBarShowing ? 'flex':'hidden'}}">
+  <div class="bg-cyan-300 w-full sm:max-w-sm shadow-2xl bg-opacity-95 ">
+   <div class="flex justify-end">
+    <svg (click)="this.closeSideBar()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+   </div>
+  <div class="w-full">
+   <div class="flex flex-col gap-2 pt-10 ">
+  <div class=" hover:bg-cyan-700 "><a class="h-8 font-semibold text-fuchsia-800 pl-5" href="#" routerLink="profile">PROFILE</a></div>
+  <div class=" hover:bg-cyan-700 "><a class="h-8 font-semibold text-fuchsia-800 pl-5" href="#" routerLink="education">EDUCATION</a></div>
+  <div class=" hover:bg-cyan-700 "><a class="h-8 font-semibold text-fuchsia-800 pl-5" href="#" routerLink="skill">SKILLS</a></div>
+  <div class=" hover:bg-cyan-700 "><a class="h-8 font-semibold text-fuchsia-800 pl-5" href="#" routerLink="project">PROJECTS</a></div>
+  <div class=" hover:bg-cyan-700 "><a class="h-8 font-semibold text-fuchsia-800 pl-5" href="#" routerLink="forcontact">FOR CONTACT</a></div>
+  
+</div>
+  </div>
+  </div >
+  <div (click)="this.closeSideBar()" class="bg-gray-900 hidden sm:block sm:w-full opacity-60" ></div>
 </nav>
+
+
+<nav class=" bg-indigo-600  mx-2 w-full" >
+ <div class="flex mx-auto items-center justify-between container px-3 py-2 ">
+  <div class="slide-in-left">
+    <img  [src]="portfolio" alt="portfolio logo" >
+  </div>
+
+
+
+<div class="w-full hidden lg:flex" >
+  <a href="#"  id="a1" class="px-3 py-2 text-sm font-medium text-gray-300 rounded-xl hover:bg-gray-700 hover:text-white " routerLink="profile">PROFILE</a>
+  <a href="#" id="a2" class="px-3 py-2 text-sm font-medium text-gray-300  rounded-xl  hover:bg-gray-700 hover:text-white" routerLink="education">EDUCATION</a>
+  <a href="#" id="a4"   class="px-3 py-2 text-sm font-medium text-gray-300 rounded-xl  hover:bg-gray-700 hover:text-white" routerLink="skill">SKILLS</a>
+  <a href="#" id="a3"  class="px-3 py-2 text-sm font-medium text-gray-300  rounded-xl  hover:bg-gray-700 hover:text-white" routerLink="project">PROJECTS</a>
+  
+  <!-- <a href="#" id="a5"   class="px-3 py-2 text-sm font-medium text-gray-300 rounded-xl  hover:bg-gray-700 hover:text-white" routerLink="activities">ACTIVITIES</a> -->
+  
+  <a href="#"  id="a6"  class="px-3 py-2 text-sm font-medium text-gray-300 rounded-xl  hover:bg-gray-700 hover:text-white" routerLink="forcontact">FOR CONTACT</a>
+  </div>
+  
+<div class="flex lg:hidden">
+  <svg (click)="this.openSideBar()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-white ">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+  </svg>
+  
+</div>
+</div>       
+       
+     
+</nav>
+
+
+
 
 <router-outlet></router-outlet>
 
